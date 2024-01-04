@@ -26,8 +26,8 @@ template_html = """
         <li class="list-group-item">
             {{ 'Pass' if test.testPassed else 'Fail' }}
           - Test ID: {{ test.testId }} | 
-          <a href="{{ reports_directory }}pytest_report_{{ test.date }}.html">
-            pytest_report_{{ test.date }}.html
+          <a href="{{ reports_directory }}hil_report_{{ test.date }}.html">
+            hil_report_{{ test.date }}.html
           </a> - {{ test.date }}
         </li>
       {% endfor %}
