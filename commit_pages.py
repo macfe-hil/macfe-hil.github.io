@@ -1,25 +1,44 @@
 import subprocess
+import git
 
-def git_commit_with_user(message, username, email):
-    try:
-        # Set the Git user details
-        subprocess.run(['git', 'config', 'user.name', username], check=True)
-        subprocess.run(['git', 'config', 'user.email', email], check=True)
+def push_with_rebase(repo_path, branch_name):
+    repo = git.Repo(repo_path)
 
-        # Run the git commit command
-        subprocess.run(['git', 'pull'])
-        subprocess.run(['git', 'add', '*'], check=True)
-        subprocess.run(['git', 'commit', '-m', message], check=True)
-        subprocess.run(['git', 'push'])
+    # Fetch updates from the remote repository
+    repo.remotes.origin.fetch()
 
-        print("Commit successful.")
-    except subprocess.CalledProcessError as e:
-        print(f"Error: {e}")
-        # Handle the error, if needed
+    # Ensure we are on the branch that needs to be updated
+    repo.heads[branch_name].checkout()
+
+    # Rebase changes
+    repo.git.rebase('origin/' + branch_name)
+
+    # Push the changes, forcing the update to the remote branch
+    repo.git.push()
+
+def configure_git_user_email(repo_path, git_username, git_email):
+    repo = git.Repo(repo_path)
+
+    # Set Git user name and email for the repository
+    repo.config_writer().set_value("user", "name", git_username).release()
+    repo.config_writer().set_value("user", "email", git_email).release()
+
+def add_and_commit_changes(repo_path, commit_message):
+    repo = git.Repo(repo_path)
+
+    # Add all changes to the index
+    repo.git.add('*')
+
+    # Commit changes
+    repo.index.commit(commit_message)
 
 # Example usage
+repo_path = "."
+branch_name = "main"
 commit_message = "a0bdc0ee-b5df-fcb0-8d64-b8f858754f33"
 git_username = "macformularacing"
 git_email = "macformulaelectric@gmail.com"
 
-git_commit_with_user(commit_message, git_username, git_email)
+configure_git_user_email(repo_path=repo_path, git_username=git_username, git_email=git_email)
+add_and_commit_changes(repo_path=repo_path, commit_message=commit_message)
+push_with_rebase(repo_path=repo_path, branch_name=branch_name)
