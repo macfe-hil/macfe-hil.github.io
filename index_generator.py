@@ -36,7 +36,7 @@ template_html = """
 
         var tabledata = [
           {% for test in tests %}
-            {id: {{ loop.index }}, name:"Test Name Goes Here", ispassed:"{{ 'Pass' if test.testPassed else 'Fail' }}", linkname:"pytest_report_{{ test.date }}.html", link:"{{ reports_directory }}pytest_report_{{ test.date }}.html", datetime:"DateTime.fromISO('2010-10-22T21:38:00').toLocaleString(DateTime.DATETIME_MED)"},
+            {id: {{ loop.index }}, name:"Test Name Goes Here", ispassed:"{{ 'Pass' if test.testPassed else 'Fail' }}", linkname:"hil_report_{{ test.date }}_{{test.time}}.html", link:"{{ reports_directory }}hil_report_{{ test.date }}_{{test.time}}.html", datetime:"{{ test.date }} {{ test.time }}"},
           {% endfor %}
         ];
               
@@ -57,14 +57,17 @@ template_html = """
               tooltip:true,         //show tool tips on cells
           },
           columns:[                 //define the table columns
-              {title:"Id", field:"id"},
+              {title:"Id", field:"id", width:30},
               {title:"Name", field:"name"},
               {title:"Link", field:"link", formatter:"link", formatterParams:{
                   labelField:"linkname",
                   urlPrefix:"",
                   target:"_blank",
               }},
-              {title:"DateTime", field:"datetime", width:130, sorter:"datetime", hozAlign:"center"},
+              {title:"DateTime", field:"datetime", width:250, sorter:"datetime", hozAlign:"center", sorterParams:{
+                  format:"dd-MM-yyyy HH-mm-ss",
+                  alignEmptyValues:"top",
+              }},
               {title:"Pass or Fail", field:"ispassed"},
           ],
         });

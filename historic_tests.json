@@ -1,43 +1,20 @@
 [
   {
-    "testId": "b0e7d36a-b1ed-86bd-f589-18f37d342079",
-    "testPassed": false,
-    "date": "2024-01-03_22-31-09"
-  },
-  {
-    "testId": "55a0a2aa-07c9-8a99-5e5a-d344bc55ec93",
-    "testPassed": false,
-    "date": "2024-01-03_22-10-49"
-  },
-  {
-    "testId": "3df1bf55-a9b6-a7f5-d7b6-0839cbeb8f70",
-    "testPassed": false,
-    "date": "2024-01-03_22-06-58"
-  },
-  {
-    "testId": "faa0d73e-91fb-f53d-43bb-28627680e9f1",
-    "testPassed": false,
-    "date": "2024-01-03_22-03-03"
-  },
-  {
-    "testId": "a0bdc0ee-b5df-fcb0-8d64-b8f858754f33",
-    "testPassed": false,
-    "date": "2024-01-03_19-43-03"
-  },
-  {
     "testId": "51353bde-0392-48e9-945d-9ad7b43fe378",
     "testPassed": false,
-    "date": "2023-12-30_23-37-48"
+    "date": "2023-12-30",
+    "time": "23-37-48"
   },
   {
     "testId": "7b413161-4619-4061-a404-b97a237d00cb",
     "testPassed": true,
-    "date": "2023-12-30_23-36-20"
+    "date": "2023-12-30",
+    "time": "23-36-20"
   },
   {
     "testId": "545bbd10-4f65-4ecf-9646-4c021316f61f",
     "testPassed": true,
-    "date": "29/12/2023",
-    "time": "2023-12-30"
+    "date": "2023-12-29",
+    "time": "01-47-17"
   }
 ]
