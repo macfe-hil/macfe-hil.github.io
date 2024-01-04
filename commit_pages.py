@@ -35,7 +35,7 @@ def add_and_commit_changes(repo_path, commit_message):
 # Example usage
 repo_path = "."
 branch_name = "main"
-commit_message = "a0bdc0ee-b5df-fcb0-8d64-b8f858754f33"
+commit_message = "3df1bf55-a9b6-a7f5-d7b6-0839cbeb8f70"
 git_username = "macformularacing"
 git_email = "macformulaelectric@gmail.com"
 
