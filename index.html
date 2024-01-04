@@ -4,78 +4,62 @@
   <head>
     <title>Test Reports</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet"> 
   </head>
   <body class="container mt-5">
     <h1 class="mb-4">Test Reports</h1>
     <div id="example-table"></div>
-    <ul class="list-group">
-      
-        <li class="list-group-item">
-            Fail
-          - Test ID: b0e7d36a-b1ed-86bd-f589-18f37d342079 | 
-          <a href="./reports/hil_report_2024-01-03_22-31-09.html">
-            hil_report_2024-01-03_22-31-09.html
-          </a> - 2024-01-03_22-31-09
-        </li>
-      
-        <li class="list-group-item">
-            Fail
-          - Test ID: 55a0a2aa-07c9-8a99-5e5a-d344bc55ec93 | 
-          <a href="./reports/hil_report_2024-01-03_22-10-49.html">
-            hil_report_2024-01-03_22-10-49.html
-          </a> - 2024-01-03_22-10-49
-        </li>
-      
-        <li class="list-group-item">
-            Fail
-          - Test ID: 3df1bf55-a9b6-a7f5-d7b6-0839cbeb8f70 | 
-          <a href="./reports/hil_report_2024-01-03_22-06-58.html">
-            hil_report_2024-01-03_22-06-58.html
-          </a> - 2024-01-03_22-06-58
-        </li>
-      
-        <li class="list-group-item">
-            Fail
-          - Test ID: faa0d73e-91fb-f53d-43bb-28627680e9f1 | 
-          <a href="./reports/hil_report_2024-01-03_22-03-03.html">
-            hil_report_2024-01-03_22-03-03.html
-          </a> - 2024-01-03_22-03-03
-        </li>
-      
-        <li class="list-group-item">
-            Fail
-          - Test ID: a0bdc0ee-b5df-fcb0-8d64-b8f858754f33 | 
-          <a href="./reports/hil_report_2024-01-03_19-43-03.html">
-            hil_report_2024-01-03_19-43-03.html
-          </a> - 2024-01-03_19-43-03
-        </li>
-      
-        <li class="list-group-item">
-            Fail
-          - Test ID: 51353bde-0392-48e9-945d-9ad7b43fe378 | 
-          <a href="./reports/hil_report_2023-12-30_23-37-48.html">
-            hil_report_2023-12-30_23-37-48.html
-          </a> - 2023-12-30_23-37-48
-        </li>
-      
-        <li class="list-group-item">
-            Pass
-          - Test ID: 7b413161-4619-4061-a404-b97a237d00cb | 
-          <a href="./reports/hil_report_2023-12-30_23-36-20.html">
-            hil_report_2023-12-30_23-36-20.html
-          </a> - 2023-12-30_23-36-20
-        </li>
-      
-        <li class="list-group-item">
-            Pass
-          - Test ID: 545bbd10-4f65-4ecf-9646-4c021316f61f | 
-          <a href="./reports/hil_report_2023-12-29_01-47-17.html">
-            hil_report_2023-12-29_01-47-17.html
-          </a> - 2023-12-29_01-47-17
-        </li>
-      
-    </ul>
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+    <script type="module">
+      import TabulatorFull from './assets/tabulator-master/src/js/core/TabulatorFull.js';
+      import {DateTime} from './assets/luxon.js'
+
+      $( document ).ready(function() {
+        window.DateTime = DateTime
+
+        var tabledata = [
+          
+            {id: 1, name:"Test Name Goes Here", ispassed:"Fail", linkname:"pytest_report_2023-12-30_23-37-48.html", link:"./reports/pytest_report_2023-12-30_23-37-48.html", datetime:"DateTime.fromISO('2010-10-22T21:38:00').toLocaleString(DateTime.DATETIME_MED)"},
+          
+            {id: 2, name:"Test Name Goes Here", ispassed:"Pass", linkname:"pytest_report_2023-12-30_23-36-20.html", link:"./reports/pytest_report_2023-12-30_23-36-20.html", datetime:"DateTime.fromISO('2010-10-22T21:38:00').toLocaleString(DateTime.DATETIME_MED)"},
+          
+            {id: 3, name:"Test Name Goes Here", ispassed:"Pass", linkname:"pytest_report_2023-12-29_01-47-17.html", link:"./reports/pytest_report_2023-12-29_01-47-17.html", datetime:"DateTime.fromISO('2010-10-22T21:38:00').toLocaleString(DateTime.DATETIME_MED)"},
+          
+        ];
+              
+        var table = new TabulatorFull("#example-table", {
+          data:tabledata,           //load row data from array
+          layout:"fitColumns",      //fit columns to width of table
+          responsiveLayout:"hide",  //hide columns that don't fit on the table
+          addRowPos:"top",          //when adding a new row, add it to the top of the table
+          history:true,             //allow undo and redo actions on the table
+          pagination:"local",       //paginate the data
+          paginationSize:7,         //allow 7 rows per page of data
+          paginationCounter:"rows", //display count of paginated rows in footer
+          movableColumns:true,      //allow column order to be changed
+          initialSort:[             //set the initial sort order of the data
+              {column:"name", dir:"asc"},
+          ],
+          columnDefaults:{
+              tooltip:true,         //show tool tips on cells
+          },
+          columns:[                 //define the table columns
+              {title:"Id", field:"id"},
+              {title:"Name", field:"name"},
+              {title:"Link", field:"link", formatter:"link", formatterParams:{
+                  labelField:"linkname",
+                  urlPrefix:"",
+                  target:"_blank",
+              }},
+              {title:"DateTime", field:"datetime", width:130, sorter:"datetime", hozAlign:"center"},
+              {title:"Pass or Fail", field:"ispassed"},
+          ],
+        });
+      });
+    </script>
   </body>
 </html>

@@ -17,23 +17,59 @@ template_html = """
   <head>
     <title>Test Reports</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet"> 
   </head>
   <body class="container mt-5">
     <h1 class="mb-4">Test Reports</h1>
     <div id="example-table"></div>
-    <ul class="list-group">
-      {% for test in tests %}
-        <li class="list-group-item">
-            {{ 'Pass' if test.testPassed else 'Fail' }}
-          - Test ID: {{ test.testId }} | 
-          <a href="{{ reports_directory }}hil_report_{{ test.date }}.html">
-            hil_report_{{ test.date }}.html
-          </a> - {{ test.date }}
-        </li>
-      {% endfor %}
-    </ul>
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+    <script type="module">
+      import TabulatorFull from './assets/tabulator-master/src/js/core/TabulatorFull.js';
+      import {DateTime} from './assets/luxon.js'
+
+      $( document ).ready(function() {
+        window.DateTime = DateTime
+
+        var tabledata = [
+          {% for test in tests %}
+            {id: {{ loop.index }}, name:"Test Name Goes Here", ispassed:"{{ 'Pass' if test.testPassed else 'Fail' }}", linkname:"pytest_report_{{ test.date }}.html", link:"{{ reports_directory }}pytest_report_{{ test.date }}.html", datetime:"DateTime.fromISO('2010-10-22T21:38:00').toLocaleString(DateTime.DATETIME_MED)"},
+          {% endfor %}
+        ];
+              
+        var table = new TabulatorFull("#example-table", {
+          data:tabledata,           //load row data from array
+          layout:"fitColumns",      //fit columns to width of table
+          responsiveLayout:"hide",  //hide columns that don't fit on the table
+          addRowPos:"top",          //when adding a new row, add it to the top of the table
+          history:true,             //allow undo and redo actions on the table
+          pagination:"local",       //paginate the data
+          paginationSize:7,         //allow 7 rows per page of data
+          paginationCounter:"rows", //display count of paginated rows in footer
+          movableColumns:true,      //allow column order to be changed
+          initialSort:[             //set the initial sort order of the data
+              {column:"name", dir:"asc"},
+          ],
+          columnDefaults:{
+              tooltip:true,         //show tool tips on cells
+          },
+          columns:[                 //define the table columns
+              {title:"Id", field:"id"},
+              {title:"Name", field:"name"},
+              {title:"Link", field:"link", formatter:"link", formatterParams:{
+                  labelField:"linkname",
+                  urlPrefix:"",
+                  target:"_blank",
+              }},
+              {title:"DateTime", field:"datetime", width:130, sorter:"datetime", hozAlign:"center"},
+              {title:"Pass or Fail", field:"ispassed"},
+          ],
+        });
+      });
+    </script>
   </body>
 </html>
 """
