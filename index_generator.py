@@ -73,7 +73,7 @@ template_html = """
                   format:"yyyy-MM-dd HH-mm-ss",
                   alignEmptyValues:"top",
               }},
-              {title:"Pass or Fail", field:"ispassed", hozAlign:"center", formatter:"tickCross", width:100},
+              {title:"Pass/Fail", field:"ispassed", hozAlign:"center", formatter:"tickCross", width:100},
           ],
         });
       });
