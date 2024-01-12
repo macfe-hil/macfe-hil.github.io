@@ -63,7 +63,7 @@ template_html = """
               tooltip:true,         //show tool tips on cells
           },
           columns:[                 //define the table columns
-              {title:"SequenceName", field:"name", headerSort:false},
+              {title:"SequenceName", field:"name"},
               {title:"TestId", field:"id"},
               {title:"Link", field:"link", formatter:"link", headerSort:false, formatterParams:{
                   labelField:"linkname",
