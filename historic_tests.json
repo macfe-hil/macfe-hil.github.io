@@ -6,25 +6,22 @@
     "time": "17-59-36"
   },
   {
-    "testId": "f8bb20ff-a1e1-1b7a-0875-7198532d9893",
-    "testPassed": false,
-    "date": "2024-01-04",
-    "time": "02-41-04"
-  },
-  {
     "testId": "51353bde-0392-48e9-945d-9ad7b43fe378",
+    "sequenceName": "Fatal Error 💀",
     "testPassed": false,
     "date": "2023-12-30",
     "time": "23-37-48"
   },
   {
     "testId": "7b413161-4619-4061-a404-b97a237d00cb",
+    "sequenceName": "Do Nothing 🥱",
     "testPassed": true,
     "date": "2023-12-30",
     "time": "23-36-20"
   },
   {
     "testId": "545bbd10-4f65-4ecf-9646-4c021316f61f",
+    "sequenceName": "Sleeper 💤",
     "testPassed": true,
     "date": "2023-12-29",
     "time": "01-47-17"

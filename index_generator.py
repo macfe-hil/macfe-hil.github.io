@@ -42,7 +42,7 @@ template_html = """
 
         var tabledata = [
           {% for test in tests %}
-            {id: "{{ test.testId }}", name:"Test Name Goes Here", ispassed:"{{ 'true' if test.testPassed else 'false' }}", linkname:"hil_report_{{ test.date }}_{{test.time}}.html", link:"{{ reports_directory }}hil_report_{{ test.date }}_{{test.time}}.html", datetime:"{{ test.date }} {{ test.time }}"},
+            {id: "{{ test.testId }}", name:"{{ test.sequenceName }}", ispassed:"{{ 'true' if test.testPassed else 'false' }}", linkname:"hil_report_{{ test.date }}_{{test.time}}.html", link:"{{ reports_directory }}hil_report_{{ test.date }}_{{test.time}}.html", datetime:"{{ test.date }} {{ test.time }}"},
           {% endfor %}
         ];
               
@@ -63,8 +63,8 @@ template_html = """
               tooltip:true,         //show tool tips on cells
           },
           columns:[                 //define the table columns
+              {title:"SequenceName", field:"name", headerSort:false},
               {title:"TestId", field:"id"},
-              // {title:"SequenceName", field:"name", headerSort:false},
               {title:"Link", field:"link", formatter:"link", headerSort:false, formatterParams:{
                   labelField:"linkname",
                   urlPrefix:"",
