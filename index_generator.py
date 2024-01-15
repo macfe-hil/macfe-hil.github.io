@@ -57,7 +57,7 @@ template_html = """
           paginationCounter:"rows", //display count of paginated rows in footer
           movableColumns:true,      //allow column order to be changed
           initialSort:[             //set the initial sort order of the data
-              {column:"name", dir:"asc"},
+              {column:"DateTime", dir:"desc"},
           ],
           columnDefaults:{
               tooltip:true,         //show tool tips on cells
