@@ -1,5 +1,12 @@
 [
   {
+    "testId": "d3cf894c-7fa4-4520-a97b-92db9fd8036e",
+    "sequenceName": "Normal Error",
+    "testPassed": false,
+    "date": "2024-01-16",
+    "time": "21-19-46"
+  },
+  {
     "testId": "6277661e-c23c-4568-ba50-a314ada5cf42",
     "sequenceName": "Sleeper \ud83d\udca4",
     "testPassed": true,
