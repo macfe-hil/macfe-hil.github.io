@@ -1,5 +1,12 @@
 [
   {
+    "testId": "98bf7a41-b6a9-4bea-8d55-783ac7848947",
+    "sequenceName": "Normal Error",
+    "testPassed": false,
+    "date": "2024-01-16",
+    "time": "21-37-52"
+  },
+  {
     "testId": "f616f1a4-03d5-446b-b682-1a46745f07c5",
     "sequenceName": "Normal Error",
     "testPassed": false,
