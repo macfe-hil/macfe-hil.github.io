@@ -1,5 +1,12 @@
 [
   {
+    "testId": "5ba1a18c-3a79-4ba4-94a2-b78fb45c1aef",
+    "sequenceName": "Fatal Error \ud83d\udc80",
+    "testPassed": false,
+    "date": "2024-01-17",
+    "time": "19-29-15"
+  },
+  {
     "testId": "2eea1e94-adf3-4009-839f-ab5716946127",
     "sequenceName": "Fatal Error \ud83d\udc80",
     "testPassed": false,
