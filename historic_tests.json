@@ -1,5 +1,12 @@
 [
   {
+    "testId": "6c775ac3-ba37-4d15-a437-02c73c8f943c",
+    "sequenceName": "Do Nothing \ud83e\udd71",
+    "testPassed": true,
+    "date": "2024-04-21",
+    "time": "23-38-24"
+  },
+  {
     "testId": "ffa431e2-6a57-4d6c-85d0-2cbcdd8b7623",
     "sequenceName": "Fatal Error \ud83d\udc80",
     "testPassed": false,
