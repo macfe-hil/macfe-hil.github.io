@@ -1,5 +1,12 @@
 [
   {
+    "testId": "a38b2fc7-5100-4b46-b974-53c35f4b6f15",
+    "sequenceName": "Lv Controller Sequence \u26a1",
+    "testPassed": false,
+    "date": "2024-05-25",
+    "time": "20-07-53"
+  },
+  {
     "testId": "e0e8e4d4-e31b-4662-815c-946be2121a72",
     "sequenceName": "Do Nothing \ud83e\udd71",
     "testPassed": true,
