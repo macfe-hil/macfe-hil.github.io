@@ -1,5 +1,12 @@
 [
   {
+    "testId": "16ecbf08-f5b3-4339-86bc-7c1a8df4fb34",
+    "sequenceName": "Can Tracer \u270d\ufe0f",
+    "testPassed": true,
+    "date": "2024-05-27",
+    "time": "11-20-46"
+  },
+  {
     "testId": "5ad7e688-b6e4-4d62-afdd-6431aa97adf3",
     "sequenceName": "Lv Controller Sequence \u26a1",
     "testPassed": false,
